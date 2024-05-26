@@ -7,3 +7,71 @@ body {
   background-color: #081b29;
   color: aliceblue;
 }
+/* navbar */
+nav {
+  background-color: #030d14;
+}
+
+nav a {
+  color: aliceblue;
+}
+
+/* hero */
+.mar-top-hero {
+  margin-top: 10%;
+}
+
+.hero-img {
+  border-radius: 2em;
+  margin-top: 3em;
+}
+
+.btn-hero {
+  border-radius: 15px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  background-color: #030d14;
+  color: aliceblue;
+  border: 2px solid aliceblue;
+  transition: 0.3s ease-out;
+  margin-top: 1em;
+}
+
+.btn-hero:hover {
+  background-color: aliceblue;
+  color: #030d14;
+  transition: 0.3s ease-in;
+}
+
+/* banner tech stack */
+.mar-top-banner {
+  margin-top: 1em;
+}
+
+.hero-banner {
+  height: 90vh;
+}
+
+.img-project {
+  width: 100%;
+  border-radius: 1em;
+  background-position: center;
+  object-fit: cover;
+  height: 15em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+textarea {
+  resize: none;
+}
+
+.btn-form-submit {
+  background-color: #030d14;
+  border-radius: 15px;
+  width: 10em;
+}
+
+.mrgn-top {
+  margin-top: 2em;
+}
