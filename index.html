@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -19,9 +19,9 @@
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Tech stack</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#tech-stack">Tech stack</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -33,7 +33,7 @@
                 <div class="col-md-6 mar-top-hero">
                     <h1>I'm a full-stack developer, <span>&#128075;</span></h1>
                     <p>
-                        I'm Bhushan Chindarkar, a Full Stack Engineer with 5+ years of experience building scalable cloud-native applications using React, Node.js, MongoDB, and AWS. Based in Texas, USA. Currently authorized to work — no sponsorship required.
+                        I'm Bhushan Chandrakant Chindarkar, a full-stack developer (React, TypeScript, Node.js, Python/FastAPI, AWS) with an M.S. in Computer Science (GPA 3.75). At Parallax Labs I led a 5-developer team building a microservices training and assessment platform for a government defense academy, serving about 1,000 trainees and cutting result turnaround from 1 week to 1 day. At Street Care, I build a FastAPI-backed AI chatbot and donation flow on AWS. Based in Dallas, Texas.
                     </p>
                     <button class="btn btn-primary btn-hero">Contact Me</button>
                 </div>
@@ -42,57 +42,62 @@
                 </div>
             </div>
 
-            <div class="col-md-12">
+            <div class="col-md-12" id="tech-stack">
                 <h2 class="text-center mar-top-banner   "><img src="./img/svg/cube-with-layers.png" /> Tech Stack</h2>
                 <div class="col-md-4">
                     <h3><img src="./img/svg/web-design.png" /> Frontend</h3>
-                    <p><!--<img src="./img/svg/html.png"/>--> Html</p>
-                    <p>CSS</p>
-                    <p>bootstrap</p>
-                    <p>Typescript</p>
+                    <p>React</p>
+                    <p>TypeScript</p>
                     <p>JavaScript</p>
-                    <p>jQuery</p>
-                    <p>React.js</p>
-                    <p>Vite.js</p>
-                    <p>Angular.io</p>
+                    <p>HTML5</p>
+                    <p>CSS3</p>
                 </div>
                 <div class="col-md-4">
                     <h3><img src="./img/svg/database.png" /> Backend</h3>
                     <p>Node.js</p>
                     <p>Express.js</p>
-                    <p>PHP</p>
-                    <p>MySql</p>
-                    <p>Sql</p>
-                    <p>MongoDB</p>
-                    <p>GraphQL</p>
-                    <p>RESTful API</p>
+                    <p>Python</p>
+                    <p>FastAPI</p>
+                    <p>REST APIs</p>
+                    <p>Microservices</p>
+                    <p>JWT</p>
+                    <p>OAuth</p>
 
                 </div>
                 <div class="col-md-4">
-                    <h3><img src="./img/svg/technology.png" /> Others</h3>
-                    <p>Git & Github</p>
-                    <p>Heroku</p>
-                    <p>Netlify</p>
-                    <p>VS Code</p>
-                    <p>Webpack</p>
-                    <p>scrum</p>
-                    <p>AWS</p>
+                    <h3><img src="./img/svg/technology.png" /> Cloud, Data &amp; AI</h3>
+                    <p>AWS (S3, Lambda, EC2)</p>
                     <p>Docker</p>
+                    <p>CI/CD</p>
+                    <p>Git &amp; GitHub</p>
+                    <p>Vercel</p>
+                    <p>PostgreSQL</p>
+                    <p>MongoDB</p>
+                    <p>MySQL</p>
+                    <p>LLM APIs (Gemini)</p>
+                    <p>RAG</p>
+                    <p>Vector search</p>
+                    <p>Jest</p>
+                    <p>React Testing Library</p>
+                    <p>Pytest</p>
 
+                </div>
+                <div class="col-md-12">
+                    <p class="text-center">Earlier work: Angular, PHP.</p>
                 </div>
             </div>
 
-            <div class="col-md-12">
-                <h2 class="text-center mrgn-top">Currently working on this Projects</h2>
-                <div class="col-md-4 col-md-offset-4"><a href="https://gemini-ai-chatbot-six-delta.vercel.app/">
+            <div class="col-md-12" id="projects">
+                <h2 class="text-center mrgn-top">Projects</h2>
+                <div class="col-md-4 col-md-offset-2"><a href="https://gemini-ai-chatbot-six-delta.vercel.app/">
                         <h3>Google Gemini Chatbot</h3>
                         <img src="./img/Screenshot 2026-04-27 163126.png" class="img-responsive img-project" alt="Google gemini Chatbot" />
-                        <p>Designed and developed a sophisticated user interface inspired by the ChatGPT app,
-                            integrated with an advanced Gemini AI model API. This application facilitates seamless
-                            communication and provides comprehensive assistance with JavaScript, React, and various
-                            other programming languages. Users can submit code for translation into different languages
-                            and receive expert guidance on a wide range of programming topics.</p>
+                        <p>Public chatbot on Vercel. A Node.js backend proxies Gemini calls, keeps the API key server-side, and replies in about 2 seconds. Conversation history is kept per browser session in React.</p>
                     </a>
+                </div>
+                <div class="col-md-4">
+                    <h3>GitHub Repository Q&amp;A Assistant</h3>
+                    <p>Ask questions about a GitHub repo in plain English and get answers grounded in its code, with file and line citations. Code-aware chunking, Gemini embeddings, FastAPI service, Dockerized. In progress.</p>
                 </div>
                 <!-- <div class="col-md-4">
                     <h3>Tic-Tac-Toe</h3>
@@ -106,7 +111,7 @@
                 </div> -->
             </div>
 
-            <div class="col-md-12">
+            <div class="col-md-12" id="contact">
                 <h2 class="text-center mrgn-top">Contact Me</h2>
                 <div class="col-md-6">
                     <form action="">
