@@ -1048,8 +1048,8 @@
         <!-- Project 3 -->
         <article class="project">
           <div class="project__meta">
-            <p class="project__context">Personal project <span class="tag">In progress</span></p>
-            <h3>GitHub repository Q&amp;A assistant</h3>
+            <p class="project__context">Personal project, 2026</p>
+            <h3>RepoSage: ask questions about any codebase</h3>
             <p class="project__result">
               <span class="figure figure--code">routes/auth.py:42</span>
               <span class="caption">every answer points to the exact file and line it came from</span>
@@ -1058,15 +1058,16 @@
           <div class="project__body">
             <p>
               Point it at a GitHub repo and ask questions in plain English, like where authentication is handled.
-              It splits the code along function and class boundaries, embeds it with Gemini, retrieves the
-              relevant pieces and answers only from them, with citations you can check.
+              It splits the code along function and class boundaries, embeds it with Gemini into pgvector,
+              ranks matches by meaning and by keyword, and answers only from what it found, with citations
+              that are checked before you see them.
             </p>
             <ul class="stack" aria-label="Tech stack">
-              <li>Python</li><li>FastAPI</li><li>RAG</li><li>Gemini embeddings</li><li>Vector search</li><li>Docker</li>
+              <li>Python</li><li>FastAPI</li><li>RAG</li><li>Gemini</li><li>Postgres + pgvector</li><li>Docker</li>
             </ul>
             <p class="project__links">
-              <!-- TODO: replace with the repo URL, and add a "Live demo" link when it ships -->
-              <a class="link" href="https://github.com/Bhushan0010" target="_blank" rel="noopener">Code on GitHub</a>
+              <!-- TODO: add a "Live demo" link once it's deployed on Render -->
+              <a class="link" href="https://github.com/Bhushan0010/reposage" target="_blank" rel="noopener">Code on GitHub</a>
               <span class="note">Demo coming soon</span>
             </p>
           </div>
