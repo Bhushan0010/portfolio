@@ -1,149 +1,1482 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bhushan Chandrakant Chindarkar</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bhushan Chindarkar | Full-Stack Developer &amp; Forward Deployed Engineer</title>
+  <meta name="description" content="Bhushan Chindarkar is a Full-Stack Developer and Forward Deployed Engineer in Dallas, Texas, building React, Node.js, FastAPI and LLM-powered products.">
+  <meta name="theme-color" content="#E0E5E9">
 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="./css/style.css" rel="stylesheet">
+  <!-- Social previews. Add og:image once you host a 1200x630 preview image. -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bhushan Chindarkar | Full-Stack Developer & Forward Deployed Engineer">
+  <meta property="og:description" content="I build software where the problem lives: React, Node.js, Python/FastAPI, AWS and LLM features.">
+  <meta property="og:url" content="https://bhushanchindarkar.netlify.app/">
+
+  <!-- Favicon: inline SVG monogram, so the file stays self-contained -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%2314212C'/%3E%3Crect x='7' y='22' width='18' height='3' fill='%23F2AE2E'/%3E%3Ctext x='16' y='19' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='15' fill='%23E9EEF2'%3EBC%3C/text%3E%3C/svg%3E">
+
+  <!-- Type: Archivo, one variable family. Its width axis (62–125%) gives a condensed
+       display cut for headlines and a normal width for reading, without a second font. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+
+  <!-- Flag JS early so entrance styles only apply when the script can finish them -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Structured data for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Bhushan Chandrakant Chindarkar",
+    "jobTitle": "Full-Stack Developer and Forward Deployed Engineer",
+    "url": "https://bhushanchindarkar.netlify.app/",
+    "email": "mailto:b.chindarkar10@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Dallas", "addressRegion": "TX", "addressCountry": "US" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Harrisburg University of Science and Technology" },
+      { "@type": "CollegeOrUniversity", "name": "University of Mumbai" }
+    ],
+    "sameAs": [
+      "https://github.com/Bhushan0010",
+      "https://www.linkedin.com/in/bhushan-chindarkar/"
+    ]
+  }
+  </script>
+
+  <style>
+    /* =====================================================================
+       0. DESIGN TOKENS
+       Palette is sampled from the portrait's studio backdrop (light grey at
+       the top, blue-grey at the bottom), so the photo sits *in* the hero
+       rather than on top of it. Ink comes from the shadows of the blue suit;
+       marigold is the single signal colour, used for actions and status.
+       ===================================================================== */
+    :root {
+      --backdrop-top: #E0E5E9;
+      --backdrop-bottom: #91A1AE;
+      --paper: #EEF1F3;
+      --ink: #14212C;
+      --ink-raised: #1E3040;
+      --steel: #46617A;          /* secondary text on light (5.1:1 or better) */
+      --mist: #E9EEF2;           /* primary text on ink */
+      --mist-muted: #9DB0C0;     /* secondary text on ink (7.3:1) */
+      --marigold: #F2AE2E;
+      --marigold-hover: #F6BE54;
+      --rule: rgba(20, 33, 44, .14);
+      --rule-strong: rgba(20, 33, 44, .3);
+      --rule-on-ink: rgba(233, 238, 242, .18);
+      --focus: var(--ink);
+
+      /* Type */
+      --font: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --code: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      --narrow: 72%;             /* condensed width for display type */
+      --semi: 88%;               /* semi-condensed for headings and labels */
+
+      /* Scale follows the classic 12-14-16-18-21-24-36-48-60-72 progression */
+      --fs-xs: .875rem;          /* 14 */
+      --fs-sm: 1rem;             /* 16 */
+      --fs-body: 1.125rem;       /* 18 */
+      --fs-lead: 1.3125rem;      /* 21 */
+      --fs-h3: 1.5rem;           /* 24 */
+      --fs-figure: clamp(2.25rem, 1.9rem + 1.4vw, 3rem);      /* 36 → 48 */
+      --fs-h2: clamp(2.25rem, 1.5rem + 3vw, 3.75rem);         /* 36 → 60 */
+      --fs-display: clamp(3rem, 1.5rem + 5.6vw, 7rem);        /* 48 → 112 */
+
+      /* Layout */
+      --wrap: 76rem;
+      --gutter: clamp(1.25rem, 4vw, 3rem);
+      --section: clamp(4.5rem, 9vw, 8rem);
+      --header-h: 4.25rem;
+      --ease-out: cubic-bezier(.2, .7, .1, 1);
+    }
+
+    /* =====================================================================
+       1. BASE
+       ===================================================================== */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--header-h) + 1rem);
+      -webkit-text-size-adjust: 100%;
+      background: var(--paper);
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      font-size: var(--fs-body);
+      line-height: 1.55;
+      color: var(--ink);
+      background: var(--paper);
+      font-kerning: normal;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; }
+    ul, ol { padding: 0; list-style: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--wrap);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+
+    .sr-only {
+      position: absolute !important;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0);
+      white-space: nowrap; border: 0;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem; top: -4rem;
+      z-index: 100;
+      padding: .75rem 1rem;
+      background: var(--ink);
+      color: var(--mist);
+      font-weight: 600;
+      text-decoration: none;
+      --focus: var(--marigold);
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* Shared heading style: condensed, heavy, tight */
+    .h2 {
+      font-size: var(--fs-h2);
+      font-weight: 800;
+      font-stretch: var(--narrow);
+      line-height: .95;
+      letter-spacing: -.01em;
+    }
+
+    /* Shared text link: quiet underline that firms up on hover */
+    .link {
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: .3em;
+      text-decoration-color: var(--rule-strong);
+      transition: text-decoration-color .2s, text-decoration-thickness .2s;
+    }
+    .link:hover { text-decoration-color: currentColor; text-decoration-thickness: 2px; }
+
+    /* Buttons. Squared corners: buttons are tools, not pills. */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      min-height: 3rem;
+      padding: .75rem 1.4rem;
+      font: inherit;
+      font-size: var(--fs-sm);
+      font-weight: 650;
+      line-height: 1.2;
+      text-decoration: none;
+      border: 0;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: transform .12s, background-color .2s;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn--primary {
+      background: var(--marigold);
+      color: var(--ink);
+      box-shadow: inset 0 -3px 0 rgba(20, 33, 44, .18);
+    }
+    .btn--primary:hover { background: var(--marigold-hover); }
+    .btn[disabled] { opacity: .7; cursor: progress; }
+
+    /* =====================================================================
+       2. HEADER + NAV
+       Starts the same colour as the hero backdrop; picks up a translucent
+       paper background once the page scrolls.
+       ===================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--backdrop-top);
+      transition: background-color .3s, box-shadow .3s;
+    }
+    .site-header.is-stuck {
+      background: rgba(238, 241, 243, .88);
+      -webkit-backdrop-filter: saturate(1.2) blur(12px);
+      backdrop-filter: saturate(1.2) blur(12px);
+      box-shadow: 0 1px 0 var(--rule);
+    }
+    .site-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      height: var(--header-h);
+    }
+    .wordmark {
+      font-size: 1.0625rem;
+      font-weight: 750;
+      font-stretch: var(--semi);
+      letter-spacing: -.005em;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: clamp(1.25rem, 3vw, 2.25rem); }
+    .nav-links a {
+      display: block;
+      padding-block: .5rem;
+      font-size: var(--fs-sm);
+      font-weight: 550;
+      text-decoration: none;
+      /* underline drawn as a background so it can grow from the left */
+      background: linear-gradient(var(--marigold), var(--marigold)) left bottom / 0 2px no-repeat;
+      transition: background-size .25s var(--ease-out);
+    }
+    .nav-links a:hover,
+    .nav-links a[aria-current="true"] { background-size: 100% 2px; }
+
+    .menu-toggle {
+      display: none;
+      align-items: center;
+      gap: .6rem;
+      min-height: 2.75rem;
+      padding: 0 .25rem;
+      background: none;
+      border: 0;
+      font: inherit;
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .menu-toggle__bars { position: relative; width: 18px; height: 10px; }
+    .menu-toggle__bars::before,
+    .menu-toggle__bars::after {
+      content: "";
+      position: absolute; left: 0;
+      width: 100%; height: 2px;
+      background: currentColor;
+      transition: transform .25s var(--ease-out), top .25s var(--ease-out);
+    }
+    .menu-toggle__bars::before { top: 0; }
+    .menu-toggle__bars::after { top: 8px; }
+    .menu-toggle[aria-expanded="true"] .menu-toggle__bars::before { top: 4px; transform: rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .menu-toggle__bars::after { top: 4px; transform: rotate(-45deg); }
+
+    /* =====================================================================
+       3. HERO
+       The backdrop gradient only runs over the bottom --ph pixels, which is
+       exactly the portrait's rendered height, so the photo's own studio
+       gradient lines up with the page and the edges disappear.
+       ===================================================================== */
+    .hero {
+      --pw: min(34vw, 30rem);          /* portrait width */
+      --ph: calc(var(--pw) * .98);     /* portrait height (image is 900 x 882) */
+      background: linear-gradient(
+        to bottom,
+        var(--backdrop-top) 0,
+        var(--backdrop-top) calc(100% - var(--ph)),
+        var(--backdrop-bottom) 100%
+      );
+    }
+    .hero__inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) var(--pw);
+      grid-template-areas:
+        "status status"
+        "title  title"
+        "copy   photo";
+      column-gap: clamp(1.5rem, 4vw, 4rem);
+      padding-top: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .status {
+      grid-area: status;
+      display: inline-flex;
+      align-items: flex-start;
+      gap: .65rem;
+      font-size: var(--fs-sm);
+      font-weight: 550;
+      color: var(--steel);
+    }
+    .status__dot {
+      flex: none;
+      margin-top: .5em;
+      width: .55rem; height: .55rem;
+      border-radius: 50%;
+      background: var(--marigold);
+      box-shadow: 0 0 0 4px rgba(242, 174, 46, .28);
+    }
+
+    .display {
+      grid-area: title;
+      max-width: 12.5em;
+      margin-block: clamp(.75rem, 2vw, 1.25rem) clamp(1.25rem, 3vw, 2rem);
+      font-size: var(--fs-display);
+      font-weight: 820;
+      font-stretch: var(--narrow);
+      line-height: .9;
+      letter-spacing: -.015em;
+      text-wrap: balance;
+      position: relative;
+      z-index: 1;               /* stays above the portrait where they meet */
+    }
+    /* Each word sits in its own mask so it can rise into place on load */
+    .display .w {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: top;
+      padding-bottom: .12em;
+      margin-bottom: -.12em;
+    }
+    .display .w > span { display: inline-block; }
+
+    .hero__copy {
+      grid-area: copy;
+      align-self: start;
+      max-width: 34rem;
+      padding-bottom: clamp(2rem, 4vw, 3rem);
+    }
+    .hero__role {
+      font-size: var(--fs-lead);
+      font-weight: 600;
+      font-stretch: var(--semi);
+      line-height: 1.3;
+    }
+    .hero__lead { margin-top: 1rem; }
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .75rem 1.75rem;
+      margin-top: 2rem;
+    }
+
+    .hero__portrait {
+      grid-area: photo;
+      align-self: end;
+      width: var(--pw);
+      /* Rise one headline line into the title row: the top of the photo is plain
+         backdrop, so this closes the gap without covering any words */
+      margin-top: calc(var(--fs-display) * -.9);
+    }
+    .hero__portrait img {
+      width: 100%;
+      /* soften the left/right edges in case of tiny colour drift */
+      -webkit-mask-image: linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
+    }
+
+    /* =====================================================================
+       4. METRICS LEDGER (ink band the portrait "stands" on)
+       Markup is <dt> label then <dd> figure for screen readers; flex
+       column-reverse puts the figure on top visually.
+       ===================================================================== */
+    .ledger {
+      --focus: var(--marigold);
+      background: var(--ink);
+      color: var(--mist);
+    }
+    .ledger__list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 1.5fr);
+      gap: 1.75rem clamp(1.25rem, 3vw, 2.5rem);
+      padding-block: 2.25rem 2.5rem;
+    }
+    .ledger__item {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: flex-end;
+      gap: .5rem;
+      padding-left: 1rem;
+      border-left: 1px solid var(--rule-on-ink);
+    }
+    .ledger dt {
+      max-width: 16em;
+      font-size: var(--fs-xs);
+      line-height: 1.4;
+      color: var(--mist-muted);
+    }
+    .ledger .figure {
+      display: block;
+      font-size: var(--fs-figure);
+      font-weight: 780;
+      font-stretch: var(--narrow);
+      line-height: 1;
+      letter-spacing: -.01em;
+      font-variant-numeric: lining-nums;
+    }
+    .ledger .figure--text {
+      font-size: var(--fs-lead);
+      font-weight: 650;
+      font-stretch: var(--semi);
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    /* Seven days, one left lit: the "week to a day" result as a picture */
+    .ticks { display: flex; gap: 4px; margin-top: .6rem; }
+    .ticks i {
+      width: 10px; height: 14px;
+      border-radius: 1px;
+      background: transparent;
+      box-shadow: inset 0 0 0 1px rgba(233, 238, 242, .38);
+    }
+    .ticks i:last-child { background: var(--marigold); box-shadow: none; }
+
+    /* =====================================================================
+       5. SECTIONS (shared)
+       ===================================================================== */
+    .section { padding-block: var(--section); }
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: 1rem clamp(1.5rem, 4vw, 4rem);
+      align-items: end;
+      margin-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+    .section-head p { max-width: 36em; color: var(--steel); }
+
+    /* =====================================================================
+       6. SELECTED WORK
+       Ruled rows instead of a card grid: the left column is the
+       "what and how much", the right column the "how".
+       ===================================================================== */
+    .project {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: 1.5rem clamp(1.5rem, 4vw, 4rem);
+      padding-block: clamp(2rem, 4vw, 3rem);
+      border-top: 1px solid var(--rule-strong);
+    }
+    .project:last-child { border-bottom: 1px solid var(--rule-strong); }
+
+    .project__context {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .4rem .75rem;
+      font-size: var(--fs-xs);
+      font-weight: 550;
+      line-height: 1.45;
+      color: var(--steel);
+    }
+    .tag {
+      padding: .1rem .5rem;
+      border: 1px solid var(--ink);
+      border-radius: 2px;
+      font-size: .75rem;
+      font-weight: 650;
+      color: var(--ink);
+      background: rgba(242, 174, 46, .35);
+    }
+    .project h3 {
+      margin-top: .6rem;
+      font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+      font-weight: 750;
+      font-stretch: var(--semi);
+      line-height: 1.1;
+      letter-spacing: -.005em;
+    }
+    .project__result {
+      margin-top: 1.5rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--marigold);
+    }
+    .project__result .figure {
+      display: block;
+      font-size: var(--fs-figure);
+      font-weight: 800;
+      font-stretch: var(--narrow);
+      line-height: 1.05;
+      letter-spacing: -.01em;
+    }
+    .project__result .figure--phrase {
+      font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+      line-height: 1.1;
+    }
+    /* A code citation shown as code: the one place monospace earns its keep */
+    .project__result .figure--code {
+      font-family: var(--code);
+      font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+      font-weight: 600;
+      letter-spacing: -.02em;
+    }
+    .project__result .caption {
+      display: block;
+      max-width: 22em;
+      margin-top: .45rem;
+      font-size: var(--fs-xs);
+      line-height: 1.45;
+      color: var(--steel);
+    }
+
+    .project__body p { max-width: 36em; }
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: 1.25rem;
+    }
+    .stack li {
+      padding: .3rem .7rem;
+      font-size: .8125rem;
+      font-weight: 550;
+      font-stretch: var(--semi);
+      line-height: 1.2;
+      border: 1px solid var(--rule-strong);
+      border-radius: 999px;
+    }
+    .project__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem 1.75rem;
+      margin-top: 1.5rem;
+      font-size: var(--fs-sm);
+    }
+    .project__links .note { color: var(--steel); font-weight: 500; }
+
+    /* =====================================================================
+       7. ABOUT + EXPERIENCE
+       ===================================================================== */
+    .about { background: var(--backdrop-top); }
+    .about__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: 3rem clamp(2rem, 5vw, 5rem);
+    }
+    .about__intro p { margin-top: 1.25rem; max-width: 34em; }
+    .about__intro p:first-of-type { margin-top: 1.75rem; }
+    .about__intro h3 {
+      margin-top: 2.5rem;
+      font-size: var(--fs-sm);
+      font-weight: 750;
+      font-stretch: var(--semi);
+    }
+    .competencies { display: grid; gap: .55rem; margin-top: .9rem; }
+    .competencies li {
+      position: relative;
+      padding-left: 1.4rem;
+      font-size: var(--fs-sm);
+    }
+    .competencies li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: .72em;
+      width: .65rem; height: 2px;
+      background: var(--ink);
+    }
+
+    /* Career timeline: genuinely a sequence, so it gets a spine and dates */
+    .timeline {
+      display: grid;
+      gap: 2.25rem;
+      padding-left: 1.75rem;
+      border-left: 1px solid var(--rule-strong);
+      align-self: start;
+    }
+    .timeline li { position: relative; }
+    .timeline li::before {
+      content: "";
+      position: absolute;
+      left: calc(-1.75rem - 5.5px);
+      top: .3rem;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--backdrop-top);
+      border: 2px solid var(--ink);
+    }
+    .timeline li.is-current::before { background: var(--marigold); border-color: var(--ink); }
+    .timeline .when {
+      font-size: var(--fs-xs);
+      font-weight: 650;
+      color: var(--steel);
+      font-variant-numeric: tabular-nums;
+    }
+    .timeline h3 {
+      margin-top: .2rem;
+      font-size: var(--fs-lead);
+      font-weight: 720;
+      font-stretch: var(--semi);
+      line-height: 1.2;
+    }
+    .timeline .where { font-weight: 550; }
+    .timeline .detail {
+      max-width: 36em;
+      margin-top: .4rem;
+      font-size: var(--fs-sm);
+      color: var(--steel);
+    }
+
+    /* =====================================================================
+       8. SKILLS + TOOLKIT
+       A spec sheet: one ruled row per layer. Grey items = earlier tools.
+       ===================================================================== */
+    .toolkit { border-top: 1px solid var(--rule-strong); }
+    .toolkit__row {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: .6rem clamp(1.5rem, 4vw, 4rem);
+      padding-block: 1.4rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toolkit dt {
+      font-size: var(--fs-sm);
+      font-weight: 750;
+      font-stretch: var(--semi);
+      padding-top: .2rem;
+    }
+    .toolkit ul { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; }
+    .toolkit li {
+      font-size: var(--fs-lead);
+      font-weight: 500;
+      font-stretch: var(--semi);
+      line-height: 1.35;
+    }
+    .toolkit li.is-earlier { color: var(--steel); }
+
+    /* =====================================================================
+       9. CONTACT + FOOTER
+       ===================================================================== */
+    .contact {
+      --focus: var(--marigold);
+      background: var(--ink);
+      color: var(--mist);
+      padding-top: var(--section);
+    }
+    .contact__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+      gap: 3.5rem clamp(2rem, 6vw, 6rem);
+    }
+    .contact .h2 { max-width: 11em; }
+    .contact__pitch > p { max-width: 30em; margin-top: 1.25rem; color: var(--mist-muted); }
+
+    .email-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .9rem 1rem;
+      margin-top: 2.5rem;
+    }
+    .email {
+      font-size: clamp(1.25rem, 1rem + 1.3vw, 1.875rem);
+      font-weight: 650;
+      font-stretch: var(--semi);
+      text-decoration: none;
+      color: var(--mist);
+      border-bottom: 2px solid var(--marigold);
+      padding-bottom: .08em;
+      overflow-wrap: anywhere;
+    }
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      min-height: 2.5rem;
+      padding: .4rem .85rem;
+      font: inherit;
+      font-size: var(--fs-xs);
+      font-weight: 650;
+      color: var(--mist);
+      background: transparent;
+      border: 1px solid rgba(233, 238, 242, .35);
+      border-radius: 3px;
+      cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    .copy-btn:hover { border-color: var(--mist); }
+    .copy-btn svg { width: 1rem; height: 1rem; flex: none; }
+    .copy-btn .icon-check { display: none; }
+    .copy-btn.is-done { color: var(--marigold); border-color: var(--marigold); }
+    .copy-btn.is-done .icon-copy { display: none; }
+    .copy-btn.is-done .icon-check { display: block; }
+
+    .phone { margin-top: 1rem; font-size: var(--fs-sm); color: var(--mist-muted); }
+    .phone a { text-decoration-color: var(--rule-on-ink); text-underline-offset: .3em; }
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2.5rem;
+      margin-top: 2.5rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--rule-on-ink);
+    }
+    .socials a { display: grid; text-decoration: none; }
+    .socials .social__name {
+      font-weight: 700;
+      font-stretch: var(--semi);
+      transition: color .2s;
+    }
+    .socials .social__handle { font-size: var(--fs-xs); color: var(--mist-muted); }
+    .socials a:hover .social__name { color: var(--marigold); }
+
+    /* Form */
+    .contact-form { display: grid; gap: 1.1rem; align-content: start; }
+    .field { display: grid; gap: .4rem; }
+    .field label { font-size: var(--fs-xs); font-weight: 650; }
+    .field input,
+    .field textarea {
+      width: 100%;
+      min-height: 3rem;
+      padding: .8rem .9rem;
+      font: inherit;
+      font-size: var(--fs-sm);
+      color: var(--mist);
+      background: var(--ink-raised);
+      border: 1px solid rgba(233, 238, 242, .22);
+      border-radius: 3px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .field textarea { min-height: 9rem; resize: vertical; }
+    .field input:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: var(--marigold);
+      box-shadow: 0 0 0 3px rgba(242, 174, 46, .3);
+    }
+    .field.is-invalid input,
+    .field.is-invalid textarea { border-color: #F5A99B; }
+    .field-error { min-height: 0; font-size: var(--fs-xs); color: #F5A99B; }
+    .field-error:empty { display: none; }
+    .contact-form .btn { justify-self: start; margin-top: .25rem; }
+    .form-status { font-size: var(--fs-sm); color: var(--mist-muted); }
+    .form-status:empty { display: none; }
+    .form-status.is-success { color: var(--mist); }
+    .form-status.is-error { color: #F5A99B; }
+    .honeypot { position: absolute; left: -10000px; }
+
+    .footer-base {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: .75rem 2rem;
+      margin-top: var(--section);
+      padding-block: 1.75rem 2rem;
+      border-top: 1px solid var(--rule-on-ink);
+      font-size: var(--fs-xs);
+      color: var(--mist-muted);
+    }
+    .footer-base a { color: var(--mist); }
+
+    /* =====================================================================
+       10. LOAD SEQUENCE (the one orchestrated motion on the page)
+       Headline words rise, then the copy and portrait settle, then six of
+       the seven day-ticks switch off. Only runs when JS is present, and
+       never when the visitor prefers reduced motion.
+       ===================================================================== */
+    .js .display .w > span { transform: translateY(108%); }
+    .js .hero__copy,
+    .js .status { opacity: 0; transform: translateY(10px); }
+    .js .hero__portrait img { opacity: 0; transform: scale(1.025); transform-origin: 50% 100%; }
+    .js .ticks i { background: var(--marigold); box-shadow: none; }
+
+    .js.is-ready .display .w > span {
+      transform: none;
+      transition: transform .9s var(--ease-out) calc(var(--i) * 60ms + 120ms);
+    }
+    .js.is-ready .status { opacity: 1; transform: none; transition: opacity .6s, transform .6s var(--ease-out); }
+    .js.is-ready .hero__copy {
+      opacity: 1; transform: none;
+      transition: opacity .7s .55s, transform .7s var(--ease-out) .55s;
+    }
+    .js.is-ready .hero__portrait img {
+      opacity: 1; transform: none;
+      transition: opacity 1s .25s, transform 1.4s var(--ease-out) .25s;
+    }
+    .js.is-ready .ticks i:not(:last-child) {
+      background: transparent;
+      box-shadow: inset 0 0 0 1px rgba(233, 238, 242, .38);
+      transition: background-color .35s, box-shadow .35s;
+      transition-delay: calc(1100ms + var(--d) * 90ms);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+        animation: none !important;
+      }
+    }
+
+    /* =====================================================================
+       11. RESPONSIVE
+       ===================================================================== */
+    @media (max-width: 1100px) {
+      .ledger__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ledger__item--stack { grid-column: span 2; }
+    }
+
+    @media (max-width: 960px) {
+      .section-head,
+      .project,
+      .about__grid,
+      .contact__grid { grid-template-columns: minmax(0, 1fr); }
+      .section-head { align-items: start; }
+    }
+
+    @media (max-width: 860px) {
+      .hero { --pw: min(86vw, 26rem); }
+      .hero__inner {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas: "status" "title" "copy" "photo";
+      }
+      .hero__portrait { justify-self: center; margin-top: 0; }
+      .hero__copy { padding-bottom: 1.5rem; }
+    }
+
+    @media (max-width: 760px) {
+      .menu-toggle { display: inline-flex; }
+      .nav-links {
+        position: absolute;
+        top: var(--header-h);
+        left: 0; right: 0;
+        display: grid;
+        gap: 0;
+        padding: .5rem var(--gutter) 1.25rem;
+        background: var(--paper);
+        box-shadow: 0 1px 0 var(--rule), 0 18px 30px -18px rgba(20, 33, 44, .35);
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-6px);
+        transition: opacity .2s, transform .2s var(--ease-out), visibility 0s .2s;
+      }
+      .nav-links.is-open {
+        visibility: visible;
+        opacity: 1;
+        transform: none;
+        transition: opacity .2s, transform .2s var(--ease-out);
+      }
+      .nav-links a {
+        padding-block: .85rem;
+        font-size: var(--fs-lead);
+        font-weight: 650;
+        font-stretch: var(--semi);
+        border-bottom: 1px solid var(--rule);
+        background-position: left calc(100% - 0px);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .ledger__list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 1.25rem; }
+      .ledger__item--stack { grid-column: 1 / -1; }
+      .toolkit__row { grid-template-columns: minmax(0, 1fr); }
+      .hero__actions .btn--primary { flex: 1 1 100%; }
+    }
+  </style>
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Bhushan.dev</a>
-            </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#tech-stack">Tech stack</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===================================================================
+       HEADER
+       =================================================================== -->
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="wordmark" href="#top">Bhushan Chindarkar</a>
+
+      <nav aria-label="Main">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="menu-toggle__bars" aria-hidden="true"></span>
+          <span data-menu-label>Menu</span>
+        </button>
+        <ul class="nav-links" id="site-nav">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- =================================================================
+         1. HERO
+         ================================================================= -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero__inner">
+        <p class="status">
+          <span class="status__dot" aria-hidden="true"></span>
+          Open to Forward Deployed Engineer and full-stack roles: remote, hybrid or relocation
+        </p>
+
+        <!-- Words are wrapped individually for the load animation; --i sets the stagger -->
+        <h1 class="display" id="hero-title">
+          <span class="w" style="--i:0"><span>I</span></span>
+          <span class="w" style="--i:1"><span>build</span></span>
+          <span class="w" style="--i:2"><span>software</span></span>
+          <span class="w" style="--i:3"><span>where</span></span>
+          <span class="w" style="--i:4"><span>the</span></span>
+          <span class="w" style="--i:5"><span>problem</span></span>
+          <span class="w" style="--i:6"><span>lives.</span></span>
+        </h1>
+
+        <div class="hero__copy">
+          <p class="hero__role">I’m Bhushan Chindarkar, a Full-Stack Developer and Forward Deployed Engineer in Dallas, Texas.</p>
+          <p class="hero__lead">
+            I work directly with the people who have the problem, scope what they actually need,
+            and ship it end to end, from React and TypeScript to Node.js, FastAPI and AWS.
+            Lately that includes LLM features like retrieval-augmented chat.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#contact">Get in touch</a>
+            <a class="link" href="#work">See selected work</a>
+          </div>
+        </div>
+
+        <figure class="hero__portrait">
+          <img src="data:image/webp;base64,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" width="900" height="882" fetchpriority="high" decoding="async"
+               alt="Bhushan Chindarkar smiling, in a blue-grey blazer and white shirt">
+        </figure>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         2. METRICS LEDGER
+         ================================================================= -->
+    <section class="ledger" aria-label="Highlights">
+      <dl class="wrap ledger__list">
+        <div class="ledger__item">
+          <dt>the year I started shipping production web apps</dt>
+          <dd><span class="figure">2018</span></dd>
+        </div>
+        <div class="ledger__item">
+          <dt>trainees served by an assessment platform my team built</dt>
+          <dd><span class="figure">~1,000</span></dd>
+        </div>
+        <div class="ledger__item">
+          <dt>to publish trainee results, down from a full week</dt>
+          <dd>
+            <span class="figure">1 day</span>
+            <span class="ticks" aria-hidden="true">
+              <i style="--d:0"></i><i style="--d:1"></i><i style="--d:2"></i><i style="--d:3"></i><i style="--d:4"></i><i style="--d:5"></i><i></i>
+            </span>
+          </dd>
+        </div>
+        <div class="ledger__item">
+          <dt>developers led at Parallax Labs</dt>
+          <dd><span class="figure">5</span></dd>
+        </div>
+        <div class="ledger__item ledger__item--stack">
+          <dt>core stack</dt>
+          <dd><span class="figure figure--text">React, TypeScript, Node.js, Python, FastAPI, AWS</span></dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- =================================================================
+         3. SELECTED WORK
+         To add a project, copy one <article class="project"> block.
+         ================================================================= -->
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <header class="section-head">
+          <h2 class="h2" id="work-title">Selected work</h2>
+          <p>Four projects, from a client platform used by about 1,000 trainees to the AI tools I’m building now.</p>
+        </header>
+
+        <!-- Project 1 -->
+        <article class="project">
+          <div class="project__meta">
+            <p class="project__context">Parallax Labs, for a government defense academy, 2019–2021</p>
+            <h3>Training and assessment platform</h3>
+            <p class="project__result">
+              <span class="figure">1 week → 1 day</span>
+              <span class="caption">result turnaround for about 1,000 trainees</span>
+            </p>
+          </div>
+          <div class="project__body">
+            <p>
+              Assessment at the academy was largely manual, so trainees waited about a week for results.
+              I led a five-developer team that digitized the cycle as MERN-stack microservices, covering
+              tests, scoring and performance data from VR headset exercises, so results now publish within a day.
+            </p>
+            <ul class="stack" aria-label="Tech stack">
+              <li>React</li><li>Node.js</li><li>Express</li><li>MongoDB</li><li>Microservices</li>
             </ul>
-        </div>
-    </nav>
+            <p class="project__links"><span class="note">Client work, not publicly available</span></p>
+          </div>
+        </article>
 
-    <div class="container">
-        <div class="col-md-12">
+        <!-- Project 2 -->
+        <article class="project">
+          <div class="project__meta">
+            <p class="project__context">Street Care (Bright Mind Enrichment), volunteer, 2026–present</p>
+            <h3>Street Care web app</h3>
+            <!-- TODO: swap in a real number when you have one (donations processed, chatbot conversations, monthly visitors) -->
+            <p class="project__result">
+              <span class="figure figure--phrase">Donate, get help, stay informed</span>
+              <span class="caption">one app for donors and for people experiencing homelessness</span>
+            </p>
+          </div>
+          <div class="project__body">
+            <p>
+              A nonprofit needed one place for donations, help requests and vaccine awareness. I work with
+              their staff to scope each feature, then build it: an AI chatbot on a FastAPI service, MERN-stack
+              donation and awareness pages, and Docker with CI/CD for deploys to AWS.
+            </p>
+            <ul class="stack" aria-label="Tech stack">
+              <li>React</li><li>Node.js</li><li>MongoDB</li><li>Python</li><li>FastAPI</li><li>Docker</li><li>AWS</li>
+            </ul>
+            <p class="project__links">
+              <!-- TODO: add the live site and repo links if they can be public -->
+              <span class="note">Links coming soon</span>
+            </p>
+          </div>
+        </article>
 
-            <div id="hero" class="col-md-12 hero-banner">
-                <div class="col-md-6 mar-top-hero">
-                    <h1>I'm a full-stack developer, <span>&#128075;</span></h1>
-                    <p>
-                        I'm Bhushan Chandrakant Chindarkar, a full-stack developer (React, TypeScript, Node.js, Python/FastAPI, AWS) with an M.S. in Computer Science (GPA 3.75). At Parallax Labs I led a 5-developer team building a microservices training and assessment platform for a government defense academy, serving about 1,000 trainees and cutting result turnaround from 1 week to 1 day. At Street Care, I build a FastAPI-backed AI chatbot and donation flow on AWS. Based in Dallas, Texas.
-                    </p>
-                    <button class="btn btn-primary btn-hero">Contact Me</button>
-                </div>
-                <div class="col-md-6">
-                    <img src="img/pro_bhushan.jpg" class="img-responsive hero-img" alt="Bhushan Chindarkar" />
-                </div>
-            </div>
+        <!-- Project 3 -->
+        <article class="project">
+          <div class="project__meta">
+            <p class="project__context">Personal project <span class="tag">In progress</span></p>
+            <h3>GitHub repository Q&amp;A assistant</h3>
+            <p class="project__result">
+              <span class="figure figure--code">routes/auth.py:42</span>
+              <span class="caption">every answer points to the exact file and line it came from</span>
+            </p>
+          </div>
+          <div class="project__body">
+            <p>
+              Point it at a GitHub repo and ask questions in plain English, like where authentication is handled.
+              It splits the code along function and class boundaries, embeds it with Gemini, retrieves the
+              relevant pieces and answers only from them, with citations you can check.
+            </p>
+            <ul class="stack" aria-label="Tech stack">
+              <li>Python</li><li>FastAPI</li><li>RAG</li><li>Gemini embeddings</li><li>Vector search</li><li>Docker</li>
+            </ul>
+            <p class="project__links">
+              <!-- TODO: replace with the repo URL, and add a "Live demo" link when it ships -->
+              <a class="link" href="https://github.com/Bhushan0010" target="_blank" rel="noopener">Code on GitHub</a>
+              <span class="note">Demo coming soon</span>
+            </p>
+          </div>
+        </article>
 
-            <div class="col-md-12" id="tech-stack">
-                <h2 class="text-center mar-top-banner   "><img src="./img/svg/cube-with-layers.png" /> Tech Stack</h2>
-                <div class="col-md-4">
-                    <h3><img src="./img/svg/web-design.png" /> Frontend</h3>
-                    <p>React</p>
-                    <p>TypeScript</p>
-                    <p>JavaScript</p>
-                    <p>HTML5</p>
-                    <p>CSS3</p>
-                </div>
-                <div class="col-md-4">
-                    <h3><img src="./img/svg/database.png" /> Backend</h3>
-                    <p>Node.js</p>
-                    <p>Express.js</p>
-                    <p>Python</p>
-                    <p>FastAPI</p>
-                    <p>REST APIs</p>
-                    <p>Microservices</p>
-                    <p>JWT</p>
-                    <p>OAuth</p>
+        <!-- Project 4 -->
+        <article class="project">
+          <div class="project__meta">
+            <p class="project__context">Personal project, live on Vercel</p>
+            <h3>Gemini chatbot</h3>
+            <p class="project__result">
+              <span class="figure">~2 s</span>
+              <span class="caption">typical reply time, with the API key never exposed to the browser</span>
+            </p>
+          </div>
+          <div class="project__body">
+            <p>
+              A public chatbot built on Google’s Gemini API. A Node.js backend proxies every call so the
+              key stays on the server, and React keeps the conversation history for each browser session.
+            </p>
+            <ul class="stack" aria-label="Tech stack">
+              <li>React</li><li>Node.js</li><li>Gemini API</li><li>Vercel</li>
+            </ul>
+            <p class="project__links">
+              <a class="link" href="https://gemini-ai-chatbot-six-delta.vercel.app/" target="_blank" rel="noopener">Live demo</a>
+              <!-- TODO: replace with the repo URL -->
+              <a class="link" href="https://github.com/Bhushan0010" target="_blank" rel="noopener">Code on GitHub</a>
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
 
-                </div>
-                <div class="col-md-4">
-                    <h3><img src="./img/svg/technology.png" /> Cloud, Data &amp; AI</h3>
-                    <p>AWS (S3, Lambda, EC2)</p>
-                    <p>Docker</p>
-                    <p>CI/CD</p>
-                    <p>Git &amp; GitHub</p>
-                    <p>Vercel</p>
-                    <p>PostgreSQL</p>
-                    <p>MongoDB</p>
-                    <p>MySQL</p>
-                    <p>LLM APIs (Gemini)</p>
-                    <p>RAG</p>
-                    <p>Vector search</p>
-                    <p>Jest</p>
-                    <p>React Testing Library</p>
-                    <p>Pytest</p>
+    <!-- =================================================================
+         4. ABOUT + EXPERIENCE
+         ================================================================= -->
+    <section class="section about" id="experience" aria-labelledby="exp-title">
+      <div class="wrap about__grid">
+        <div class="about__intro">
+          <h2 class="h2" id="exp-title">Experience</h2>
+          <p>
+            My first full-time role, in 2018, was building features for Menu-fi, a digital menu and ordering
+            product, at Alphagan in India. At Parallax Labs I then led a five-developer team delivering platforms
+            for a defense academy, a space-research organization and one of India’s largest conglomerates.
+          </p>
+          <p>
+            After an M.S. in Computer Science in the US, I volunteer as a software engineer at Street Care.
+            I’m the link between the nonprofit’s staff and the codebase: I learn what they need, scope it, and ship it.
+          </p>
 
-                </div>
-                <div class="col-md-12">
-                    <p class="text-center">Earlier work: Angular, PHP.</p>
-                </div>
-            </div>
-
-            <div class="col-md-12" id="projects">
-                <h2 class="text-center mrgn-top">Projects</h2>
-                <div class="col-md-4 col-md-offset-2"><a href="https://gemini-ai-chatbot-six-delta.vercel.app/">
-                        <h3>Google Gemini Chatbot</h3>
-                        <img src="./img/Screenshot 2026-04-27 163126.png" class="img-responsive img-project" alt="Google gemini Chatbot" />
-                        <p>Public chatbot on Vercel. A Node.js backend proxies Gemini calls, keeps the API key server-side, and replies in about 2 seconds. Conversation history is kept per browser session in React.</p>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <h3>GitHub Repository Q&amp;A Assistant</h3>
-                    <p>Ask questions about a GitHub repo in plain English and get answers grounded in its code, with file and line citations. Code-aware chunking, Gemini embeddings, FastAPI service, Dockerized. In progress.</p>
-                </div>
-                <!-- <div class="col-md-4">
-                    <h3>Tic-Tac-Toe</h3>
-                    <img src="./img/tic-tok.jpg" class="img-responsive img-project" alt="Online tic-tok" />
-                    <p>Online game to play tic-tok with your friend.</p>
-                </div>
-                <div class="col-md-4">
-                    <h3>Social Media</h3>
-                    <img src="./img/social.jpg" class="img-responsive img-project" alt="Social Meadia" />
-                    <p>Creating next facebook.</p>
-                </div> -->
-            </div>
-
-            <div class="col-md-12" id="contact">
-                <h2 class="text-center mrgn-top">Contact Me</h2>
-                <div class="col-md-6">
-                    <form action="">
-                        <div class="form-group">
-                            <label for="name">Name:</label>
-                            <input type="text" class="form-control" id="name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" class="form-control" id="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message:</label>
-                            <textarea class="form-control" id="message"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-form-submit">Submit</button>
-                    </form>
-
-                </div>
-                <div class="col-md-6">
-                    <p><a href="https://www.linkedin.com/in/bhushan-chindarkar/">LinkedIn</a></p>
-                    <p><a href="https://github.com/Bhushan0010">Github</a></p>
-                    <p><a href="mailto:b.chindarkar10@gmail.com">b.chindarkar10@gmail.com</a></p>
-                    <p><a href="tel:+1 682-306-3740">+1 682-306-3740</a></p>
-                </div>
-            </div>
+          <h3>What I bring to a team</h3>
+          <ul class="competencies">
+            <li>Turning stakeholder conversations into scoped, shippable work</li>
+            <li>End-to-end delivery across React, Node.js, Python and FastAPI</li>
+            <li>LLM features: RAG, embeddings, vector search and API integration</li>
+            <li>Shipping to AWS with Docker and CI/CD</li>
+            <li>Leading small teams from kickoff to release</li>
+          </ul>
         </div>
 
-        <!-- jQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <!-- Bootstrap JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <ol class="timeline" aria-label="Career timeline, most recent first">
+          <li class="is-current">
+            <p class="when">2026 – now</p>
+            <h3>Software Engineer (volunteer)</h3>
+            <p class="where">Street Care, Bright Mind Enrichment</p>
+            <p class="detail">AI chatbot on FastAPI, MERN-stack donation and vaccine-awareness pages, deployed with Docker and CI/CD.</p>
+          </li>
+          <li>
+            <p class="when">2023 – 2025</p>
+            <h3>M.S. Computer Science</h3>
+            <p class="where">Harrisburg University</p>
+            <p class="detail">GPA 3.75. Began graduate coursework at UT Arlington before transferring.</p>
+          </li>
+          <li>
+            <p class="when">2019 – 2021</p>
+            <h3>Senior Full Stack Developer</h3>
+            <p class="where">Parallax Labs, India</p>
+            <p class="detail">Led five developers building MERN-stack platforms for defense, space-research and enterprise clients.</p>
+          </li>
+          <li>
+            <p class="when">2018 – 2019</p>
+            <h3>Full Stack Developer</h3>
+            <p class="where">Alphagan, India</p>
+            <p class="detail">Built features for Menu-fi, a digital menu and order-management product for restaurants.</p>
+          </li>
+          <li>
+            <p class="when">2013 – 2018</p>
+            <h3>Bachelor’s in Computer Engineering</h3>
+            <p class="where">University of Mumbai</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         5. SKILLS + TOOLKIT
+         Add class="is-earlier" to an item to show it in grey.
+         ================================================================= -->
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="wrap">
+        <header class="section-head">
+          <h2 class="h2" id="skills-title">Skills and toolkit</h2>
+          <p>Grouped by layer. Items in grey are earlier tools I’ve shipped with but don’t lead with today.</p>
+        </header>
+
+        <dl class="toolkit">
+          <div class="toolkit__row">
+            <dt>Languages</dt>
+            <dd><ul>
+              <li>JavaScript</li><li>TypeScript</li><li>Python</li><li>Java</li><li>HTML5</li><li>CSS3</li>
+              <li class="is-earlier">PHP<span class="sr-only"> (earlier)</span></li>
+            </ul></dd>
+          </div>
+          <div class="toolkit__row">
+            <dt>Frameworks and APIs</dt>
+            <dd><ul>
+              <li>React</li><li>Node.js</li><li>Express.js</li><li>FastAPI</li><li>REST APIs</li><li>Microservices</li><li>JWT and OAuth</li>
+              <li class="is-earlier">Angular<span class="sr-only"> (earlier)</span></li>
+            </ul></dd>
+          </div>
+          <div class="toolkit__row">
+            <dt>Cloud and tooling</dt>
+            <dd><ul>
+              <li>AWS (S3, Lambda, EC2)</li><li>Docker</li><li>CI/CD</li><li>Git and GitHub</li><li>Vercel</li>
+            </ul></dd>
+          </div>
+          <div class="toolkit__row">
+            <dt>Data and AI</dt>
+            <dd><ul>
+              <li>MongoDB</li><li>PostgreSQL</li><li>MySQL</li><li>LLM APIs (Gemini)</li><li>RAG</li><li>Embeddings</li><li>Vector search</li>
+            </ul></dd>
+          </div>
+          <div class="toolkit__row">
+            <dt>Testing</dt>
+            <dd><ul>
+              <li>Jest</li><li>React Testing Library</li><li>Pytest</li>
+            </ul></dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================
+       6. CONTACT + FOOTER
+       =================================================================== -->
+  <footer class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap contact__grid">
+      <div class="contact__pitch">
+        <h2 class="h2" id="contact-title">Hiring for a Forward Deployed or full-stack role?</h2>
+        <p>Tell me about the team and the problem you’re working on. Email is quickest; the form works too.</p>
+
+        <div class="email-row">
+          <a class="email" href="mailto:b.chindarkar10@gmail.com">b.chindarkar10@gmail.com</a>
+          <button class="copy-btn" type="button" data-copy="b.chindarkar10@gmail.com">
+            <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1.5"/><path d="M5 15V5.5A1.5 1.5 0 0 1 6.5 4H15"/></svg>
+            <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+            <span data-copy-label>Copy email</span>
+          </button>
+        </div>
+        <p class="sr-only" id="copy-status" aria-live="polite"></p>
+
+        <p class="phone"><a href="tel:+16823063740">+1 (682) 306-3740</a></p>
+
+        <ul class="socials">
+          <li><a href="https://github.com/Bhushan0010" target="_blank" rel="noopener">
+            <span class="social__name">GitHub</span><span class="social__handle">Bhushan0010</span>
+          </a></li>
+          <li><a href="https://www.linkedin.com/in/bhushan-chindarkar/" target="_blank" rel="noopener">
+            <span class="social__name">LinkedIn</span><span class="social__handle">bhushan-chindarkar</span>
+          </a></li>
+          <!-- X / Twitter: add your handle and uncomment
+          <li><a href="https://x.com/YOUR_HANDLE" target="_blank" rel="noopener">
+            <span class="social__name">X</span><span class="social__handle">@YOUR_HANDLE</span>
+          </a></li>
+          -->
+        </ul>
+      </div>
+
+      <!-- Contact form.
+           Delivery, in order of preference (see CONTACT config in the script):
+           1. CONTACT.endpoint set (e.g. Formspree) → posts there. Works on any host.
+           2. Hosted on Netlify → Netlify Forms picks this up automatically (data-netlify).
+           3. Anywhere else (GitHub Pages, Vercel, local file) → opens the visitor's email app, pre-filled. -->
+      <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="company" novalidate data-contact-form>
+        <input type="hidden" name="form-name" value="contact">
+        <p class="honeypot" aria-hidden="true"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off"></label></p>
+
+        <div class="field">
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err">
+          <p class="field-error" id="f-name-err"></p>
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="f-email-err">
+          <p class="field-error" id="f-email-err"></p>
+        </div>
+        <div class="field">
+          <label for="f-message">Message</label>
+          <textarea id="f-message" name="message" rows="5" required aria-describedby="f-message-err"></textarea>
+          <p class="field-error" id="f-message-err"></p>
+        </div>
+
+        <button class="btn btn--primary" type="submit" data-submit>Send message</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <div class="wrap">
+      <div class="footer-base">
+        <p>© <span data-year>2026</span> Bhushan Chandrakant Chindarkar</p>
+        <a href="#top">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  /* ======================================================================
+     Small, dependency-free behaviour layer
+     ====================================================================== */
+  (() => {
+    'use strict';
+
+    /* ---------- Config ---------- */
+    const CONTACT = {
+      email: 'b.chindarkar10@gmail.com',
+      // Optional: paste a Formspree / Getform endpoint to receive messages on any host,
+      // e.g. 'https://formspree.io/f/abcdwxyz'. Leave empty to use the fallbacks.
+      endpoint: '',
+      // Netlify Forms works on *.netlify.app. Set to true if you use a custom domain on Netlify.
+      netlify: /\.netlify\.app$/.test(location.hostname),
+    };
+
+    const root = document.documentElement;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---------- 1. Load sequence: wait for the web font (max 900ms) so the
+       headline doesn't animate in the fallback face ---------- */
+    const start = () => requestAnimationFrame(() => root.classList.add('is-ready'));
+    if (!reduceMotion && document.fonts && document.fonts.ready) {
+      Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 900))]).then(start);
+    } else {
+      start();
+    }
+
+    /* ---------- 2. Header picks up a backdrop once the page scrolls ---------- */
+    const header = document.querySelector('.site-header');
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        header.classList.toggle('is-stuck', window.scrollY > 24);
+        ticking = false;
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ---------- 3. Mobile menu ---------- */
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.getElementById('site-nav');
+    const toggleLabel = toggle.querySelector('[data-menu-label]');
+    const setMenu = (open) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      nav.classList.toggle('is-open', open);
+      toggleLabel.textContent = open ? 'Close' : 'Menu';
+    };
+    toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
+    nav.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) { setMenu(false); toggle.focus(); }
+    });
+
+    /* ---------- 4. Highlight the nav link for the section in view ---------- */
+    const navLinks = [...nav.querySelectorAll('a[href^="#"]')];
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          navLinks.forEach((a) => {
+            if (a.hash === '#' + entry.target.id) a.setAttribute('aria-current', 'true');
+            else a.removeAttribute('aria-current');
+          });
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      navLinks.forEach((a) => {
+        const section = document.querySelector(a.hash);
+        if (section) io.observe(section);
+      });
+    }
+
+    /* ---------- 5. Copy email ---------- */
+    const copyStatus = document.getElementById('copy-status');
+    const legacyCopy = (text) => {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      let ok = false;
+      try { ok = document.execCommand('copy'); } catch (_) { ok = false; }
+      ta.remove();
+      return ok;
+    };
+    document.querySelectorAll('[data-copy]').forEach((btn) => {
+      const label = btn.querySelector('[data-copy-label]');
+      btn.addEventListener('click', async () => {
+        const text = btn.dataset.copy;
+        let ok = false;
+        try {
+          await navigator.clipboard.writeText(text);
+          ok = true;
+        } catch (_) {
+          ok = legacyCopy(text);
+        }
+        btn.classList.toggle('is-done', ok);
+        label.textContent = ok ? 'Copied' : 'Copy failed: select the address';
+        copyStatus.textContent = ok ? 'Email address copied.' : 'Copy failed. Select the email address to copy it.';
+        clearTimeout(btn._reset);
+        btn._reset = setTimeout(() => {
+          btn.classList.remove('is-done');
+          label.textContent = 'Copy email';
+        }, 2200);
+      });
+    });
+
+    /* ---------- 6. Contact form ---------- */
+    const form = document.querySelector('[data-contact-form]');
+    if (form) {
+      const status = form.querySelector('.form-status');
+      const submit = form.querySelector('[data-submit]');
+      const fields = [...form.querySelectorAll('#f-name, #f-email, #f-message')];
+      const messages = {
+        name: 'Add your name.',
+        email: 'Enter an email address, like name@company.com.',
+        message: 'Write a short message.',
+      };
+
+      const validate = (field) => {
+        const wrap = field.closest('.field');
+        const error = wrap.querySelector('.field-error');
+        const valid = field.value.trim() !== '' && field.checkValidity();
+        wrap.classList.toggle('is-invalid', !valid);
+        field.setAttribute('aria-invalid', String(!valid));
+        error.textContent = valid ? '' : messages[field.name];
+        return valid;
+      };
+
+      // Re-check a field as soon as the visitor fixes it
+      fields.forEach((f) => f.addEventListener('input', () => {
+        if (f.closest('.field').classList.contains('is-invalid')) validate(f);
+      }));
+
+      const setStatus = (text, kind) => {
+        status.textContent = text;
+        status.className = 'form-status' + (kind ? ' is-' + kind : '');
+      };
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const results = fields.map(validate);
+        if (results.includes(false)) {
+          fields[results.indexOf(false)].focus();
+          return;
+        }
+        if (form.company.value) return; // honeypot filled: almost certainly a bot
+
+        const data = new FormData(form);
+        submit.disabled = true;
+        submit.textContent = 'Sending…';
+        setStatus('');
+
+        try {
+          if (CONTACT.endpoint) {
+            const res = await fetch(CONTACT.endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+            if (!res.ok) throw new Error(res.status);
+            form.reset();
+            setStatus('Message sent. Thanks for reaching out.', 'success');
+          } else if (CONTACT.netlify) {
+            const res = await fetch('/', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: new URLSearchParams(data).toString(),
+            });
+            if (!res.ok) throw new Error(res.status);
+            form.reset();
+            setStatus('Message sent. Thanks for reaching out.', 'success');
+          } else {
+            const name = data.get('name');
+            const subject = encodeURIComponent('Portfolio message from ' + name);
+            const body = encodeURIComponent(data.get('message') + '\n\n' + name + ' (' + data.get('email') + ')');
+            window.location.href = 'mailto:' + CONTACT.email + '?subject=' + subject + '&body=' + body;
+            setStatus('Your email app should open with this message filled in. If it doesn’t, email ' + CONTACT.email + ' directly.');
+          }
+        } catch (_) {
+          setStatus('Your message didn’t send. Try again, or email ' + CONTACT.email + ' directly.', 'error');
+        } finally {
+          submit.disabled = false;
+          submit.textContent = 'Send message';
+        }
+      });
+    }
+
+    /* ---------- 7. Footer year ---------- */
+    document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
+  })();
+  </script>
 </body>
-
 </html>
